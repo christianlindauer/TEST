@@ -1,0 +1,1 @@
+D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.BusinessLayer\obj\Debug\AutoReservation.BusinessLayer.csprojResolveAssemblyReference.cache
