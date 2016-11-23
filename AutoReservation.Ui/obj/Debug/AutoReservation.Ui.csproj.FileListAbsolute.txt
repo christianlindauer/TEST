@@ -9,3 +9,14 @@ D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\obj\Deb
 D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\obj\Debug\AutoReservation.Ui_MarkupCompile.cache
 D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\obj\Debug\AutoReservation.Ui_MarkupCompile.lref
+E:\DotNet\AutoReservation.Ui\bin\Debug\AutoReservation.Ui.exe.config
+E:\DotNet\AutoReservation.Ui\obj\Debug\AutoReservation.Ui.csprojResolveAssemblyReference.cache
+E:\DotNet\AutoReservation.Ui\obj\Debug\Views\AutoView.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\MainWindow.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\Views\KundeView.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\Views\ReservationView.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\App.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\AutoReservation.Ui_Content.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\DotNet\AutoReservation.Ui\obj\Debug\AutoReservation.Ui_MarkupCompile.cache
+E:\DotNet\AutoReservation.Ui\obj\Debug\AutoReservation.Ui_MarkupCompile.lref

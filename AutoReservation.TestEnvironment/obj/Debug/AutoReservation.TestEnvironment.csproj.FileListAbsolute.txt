@@ -1,0 +1,1 @@
+E:\DotNet\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.csprojResolveAssemblyReference.cache

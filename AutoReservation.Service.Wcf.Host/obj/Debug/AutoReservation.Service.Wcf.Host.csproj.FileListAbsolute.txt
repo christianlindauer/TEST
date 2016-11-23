@@ -1,0 +1,1 @@
+E:\DotNet\AutoReservation.Service.Wcf.Host\obj\Debug\AutoReservation.Service.Wcf.Host.csprojResolveAssemblyReference.cache

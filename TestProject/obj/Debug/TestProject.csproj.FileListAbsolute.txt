@@ -1,0 +1,12 @@
+E:\DotNet\TestProject\bin\Debug\TestProject.exe.config
+E:\DotNet\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+E:\DotNet\TestProject\bin\Debug\TestProject.exe
+E:\DotNet\TestProject\bin\Debug\TestProject.pdb
+E:\DotNet\TestProject\bin\Debug\AutoReservation.Dal.dll
+E:\DotNet\TestProject\bin\Debug\EntityFramework.dll
+E:\DotNet\TestProject\bin\Debug\EntityFramework.SqlServer.dll
+E:\DotNet\TestProject\bin\Debug\AutoReservation.Dal.pdb
+E:\DotNet\TestProject\bin\Debug\EntityFramework.xml
+E:\DotNet\TestProject\bin\Debug\EntityFramework.SqlServer.xml
+E:\DotNet\TestProject\obj\Debug\TestProject.exe
+E:\DotNet\TestProject\obj\Debug\TestProject.pdb

@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\obj\Debug\
+E:\DotNet\AutoReservation.Ui\obj\Debug\
 AutoReservation.Ui
 none
 false
 DEBUG;TRACE
-D:\HSR\DotNet\MsTe\02_Uebungen\99_Miniprojekt\Vorgabe\AutoReservation.Ui\App.xaml
+E:\DotNet\AutoReservation.Ui\App.xaml
 41021253107
 1-1130481776
 221710444637
-14-482472850
+142063426047
 Views\AutoView.xaml;MainWindow.xaml;Views\KundeView.xaml;Views\ReservationView.xaml;
 
 True
