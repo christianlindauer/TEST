@@ -10,3 +10,15 @@ E:\DotNet\TestProject\bin\Debug\EntityFramework.xml
 E:\DotNet\TestProject\bin\Debug\EntityFramework.SqlServer.xml
 E:\DotNet\TestProject\obj\Debug\TestProject.exe
 E:\DotNet\TestProject\obj\Debug\TestProject.pdb
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\TestProject.exe.config
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\TestProject.exe
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\TestProject.pdb
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\AutoReservation.Dal.dll
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\EntityFramework.dll
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\EntityFramework.SqlServer.dll
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\AutoReservation.Dal.pdb
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\EntityFramework.xml
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\bin\Debug\EntityFramework.SqlServer.xml
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\obj\Debug\TestProject.csprojResolveAssemblyReference.cache
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\obj\Debug\TestProject.exe
+D:\HSR\DotNet\MsTe\Testat\DotNET\TestProject\obj\Debug\TestProject.pdb

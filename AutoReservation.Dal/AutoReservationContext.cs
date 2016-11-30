@@ -46,7 +46,17 @@ namespace AutoReservation.Dal
 
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-            modelBuilder.Entity<Auto>().Map()
+            modelBuilder.Entity<StandardAuto>().Map(a => a.Requires("AutoKlasse").HasValue(0))                                        
+                .ToTable("Auto");
+
+            modelBuilder.Entity<MittelKlasseAuto>().Map(a => a.Requires("AutoKlasse").HasValue(1))
+                .ToTable("Auto");
+
+            modelBuilder.Entity<LuxusAuto>().Map(a => a.Requires("AutoKlasse").HasValue(2))         
+                .ToTable("Auto");
+
+
+
 
             // Set up hierarchical mapping in fluent API
             //      Remarks:
