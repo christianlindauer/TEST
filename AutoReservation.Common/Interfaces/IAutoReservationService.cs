@@ -1,4 +1,5 @@
 ﻿using AutoReservation.Common.DataTransferObjects;
+using AutoReservation.Dal.Entities;
 using System.Collections.Generic;
 using System.ServiceModel;
 
@@ -15,13 +16,13 @@ namespace AutoReservation.Common.Interfaces
         AutoDto getCarByPrimaryKey(int key);
 
         [OperationContract]
-        void addCar(AutoDto car);
+        void addCar(Auto car);
 
         [OperationContract]
-        void updateCar(AutoDto car);
+        void updateCar(Auto car);
 
         [OperationContract]
-        void deleteCar(AutoDto car);
+        void deleteCar(Auto car);
 
         // Customer
         [OperationContract]
@@ -31,13 +32,13 @@ namespace AutoReservation.Common.Interfaces
         KundeDto getCustomerByPrimaryKey(int key);
 
         [OperationContract]
-        void addCustomer(KundeDto car);
+        void addCustomer(Kunde customer);
 
         [OperationContract]
-        void updateCustomer(KundeDto car);
+        void updateCustomer(Kunde customer);
 
         [OperationContract]
-        void deleteCustomer(KundeDto car);
+        void deleteCustomer(Kunde customer));
 
         // Reservation
         [OperationContract]
@@ -47,12 +48,12 @@ namespace AutoReservation.Common.Interfaces
         ReservationDto getReservationByPrimaryKey(int key);
 
         [OperationContract]
-        void addReservation(ReservationDto car);
+        void addReservation(Reservation reservation);
 
         [OperationContract]
-        void updateReservation(ReservationDto car);
+        void updateReservation(Reservation reservation);
 
         [OperationContract]
-        void deleteReservation(ReservationDto car);
+        void deleteReservation(Reservation reservation);
     }
 }
