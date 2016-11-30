@@ -7,20 +7,22 @@ namespace AutoReservation.Dal.Entities
     public class Reservation
     {
         [Key]
-        public int Id { get; set; }
+        public int ReservationsNr { get; set; }
 
-        [ ForeignKey("Auto")]
         public int AutoId { get; set; }
 
-        [Required]
+        [ ForeignKey(nameof(AutoId))]
         public Auto Auto { get; set; }
 
 
-        [ForeignKey("Kunde")]
+
         public int KundeId { get; set; }
 
-        [Required]
+
+        [ForeignKey(nameof(KundeId))]
         public Kunde Kunde { get; set; }
+
+
 
         [Required]
         public DateTime Von { get; set; }

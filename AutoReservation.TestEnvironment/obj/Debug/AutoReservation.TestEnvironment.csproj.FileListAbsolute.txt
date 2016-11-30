@@ -1,1 +1,11 @@
 E:\DotNet\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.csprojResolveAssemblyReference.cache
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.TestEnvironment.dll
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.TestEnvironment.pdb
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.Dal.dll
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.dll
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.SqlServer.dll
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\AutoReservation.Dal.pdb
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.xml
+E:\DotNet\AutoReservation.TestEnvironment\bin\Debug\EntityFramework.SqlServer.xml
+E:\DotNet\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.dll
+E:\DotNet\AutoReservation.TestEnvironment\obj\Debug\AutoReservation.TestEnvironment.pdb

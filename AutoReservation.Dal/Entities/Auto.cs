@@ -21,13 +21,13 @@ namespace AutoReservation.Dal.Entities
         
     }
     
-    public class LuxusAuto : Auto
+    public class LuxusklasseAuto : Auto
     {
         [Required]
         public int? Basistarif { get; set; }
     }
 
-    public class MittelKlasseAuto : Auto
+    public class MittelklasseAuto : Auto
     {
     }
 

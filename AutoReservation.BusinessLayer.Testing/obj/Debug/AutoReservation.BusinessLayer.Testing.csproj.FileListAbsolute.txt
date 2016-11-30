@@ -1,1 +1,17 @@
 E:\DotNet\AutoReservation.BusinessLayer.Testing\obj\Debug\AutoReservation.BusinessLayer.Testing.csprojResolveAssemblyReference.cache
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.BusinessLayer.Testing.dll.config
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.BusinessLayer.Testing.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.BusinessLayer.Testing.pdb
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.BusinessLayer.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.Dal.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.TestEnvironment.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\EntityFramework.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\EntityFramework.SqlServer.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.BusinessLayer.pdb
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.Dal.pdb
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\AutoReservation.TestEnvironment.pdb
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\EntityFramework.xml
+E:\DotNet\AutoReservation.BusinessLayer.Testing\bin\Debug\EntityFramework.SqlServer.xml
+E:\DotNet\AutoReservation.BusinessLayer.Testing\obj\Debug\AutoReservation.BusinessLayer.Testing.dll
+E:\DotNet\AutoReservation.BusinessLayer.Testing\obj\Debug\AutoReservation.BusinessLayer.Testing.pdb

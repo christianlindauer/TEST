@@ -49,10 +49,10 @@ namespace AutoReservation.Dal
             modelBuilder.Entity<StandardAuto>().Map(a => a.Requires("AutoKlasse").HasValue(0))                                        
                 .ToTable("Auto");
 
-            modelBuilder.Entity<MittelKlasseAuto>().Map(a => a.Requires("AutoKlasse").HasValue(1))
+            modelBuilder.Entity<MittelklasseAuto>().Map(a => a.Requires("AutoKlasse").HasValue(1))
                 .ToTable("Auto");
 
-            modelBuilder.Entity<LuxusAuto>().Map(a => a.Requires("AutoKlasse").HasValue(2))         
+            modelBuilder.Entity<LuxusklasseAuto>().Map(a => a.Requires("AutoKlasse").HasValue(2))         
                 .ToTable("Auto");
 
 
