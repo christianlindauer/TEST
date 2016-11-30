@@ -18,26 +18,20 @@ namespace AutoReservation.Dal.Entities
 
         [Required]
         public int Tagestarif { get; set; }
-
-        public int Basistarif { get; set; }
-
-        [Required]
-        public int AutoKlasse { get; set; }
+        
     }
-    /*
+    
     public class LuxusAuto : Auto
     {
         [Required]
-        public new int Basistarif { get; set; }
+        public int? Basistarif { get; set; }
     }
 
     public class MittelKlasseAuto : Auto
     {
-
     }
 
     public class StandardAuto : Auto
     {
-
-    }*/
+    }
 }
