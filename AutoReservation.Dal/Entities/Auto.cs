@@ -24,7 +24,7 @@ namespace AutoReservation.Dal.Entities
     public class LuxusAuto : Auto
     {
         [Required]
-        public int Basistarif { get; set; }
+        public int? Basistarif { get; set; }
     }
 
     public class MittelKlasseAuto : Auto
