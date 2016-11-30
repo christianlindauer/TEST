@@ -55,99 +55,102 @@ namespace AutoReservation.Service.Wcf
 
             return dto;
         }
-        public static List<Auto> ConvertToEntities(this IEnumerable<AutoDto> dtos)
-        {
-            return ConvertGenericList(dtos, ConvertToEntity);
-        }
-        public static List<AutoDto> ConvertToDtos(this IEnumerable<Auto> entities)
-        {
-            return ConvertGenericList(entities, ConvertToDto);
-        }
-        #endregion
-        #region Kunde
-        public static Kunde ConvertToEntity(this KundeDto dto)
-        {
-            if (dto == null) { return null; }
-
-            return new Kunde
+        /*
+            public static List<Auto> ConvertToEntities(this IEnumerable<AutoDto> dtos)
             {
-                Id = dto.Id,
-                Nachname = dto.Nachname,
-                Vorname = dto.Vorname,
-                Geburtsdatum = dto.Geburtsdatum,
-                RowVersion = dto.RowVersion
-            };
-        }
-        public static KundeDto ConvertToDto(this Kunde entity)
-        {
-            if (entity == null) { return null; }
-
-            return new KundeDto
+                return ConvertGenericList(dtos, ConvertToEntity);
+            }
+            public static List<AutoDto> ConvertToDtos(this IEnumerable<Auto> entities)
             {
-                Id = entity.Id,
-                Nachname = entity.Nachname,
-                Vorname = entity.Vorname,
-                Geburtsdatum = entity.Geburtsdatum,
-                RowVersion = entity.RowVersion
-            };
-        }
-        public static List<Kunde> ConvertToEntities(this IEnumerable<KundeDto> dtos)
-        {
-            return ConvertGenericList(dtos, ConvertToEntity);
-        }
-        public static List<KundeDto> ConvertToDtos(this IEnumerable<Kunde> entities)
-        {
-            return ConvertGenericList(entities, ConvertToDto);
-        }
-        #endregion
-        #region Reservation
-        public static Reservation ConvertToEntity(this ReservationDto dto)
-        {
-            if (dto == null) { return null; }
+                return ConvertGenericList(entities, ConvertToDto);
+            }
 
-            Reservation reservation = new Reservation
+            #endregion
+            #region Kunde
+            public static Kunde ConvertToEntity(this KundeDto dto)
             {
-                ReservationsNr = dto.ReservationsNr,
-                Von = dto.Von,
-                Bis = dto.Bis,
-                AutoId = dto.Auto.Id,
-                KundeId = dto.Kunde.Id,
-                RowVersion = dto.RowVersion
-            };
+                if (dto == null) { return null; }
 
-            return reservation;
-        }
-        public static ReservationDto ConvertToDto(this Reservation entity)
-        {
-            if (entity == null) { return null; }
-
-            return new ReservationDto
+                return new Kunde
+                {
+                    Id = dto.Id,
+                    Nachname = dto.Nachname,
+                    Vorname = dto.Vorname,
+                    Geburtsdatum = dto.Geburtsdatum,
+                    RowVersion = dto.RowVersion
+                };
+            }
+            public static KundeDto ConvertToDto(this Kunde entity)
             {
-                ReservationsNr = entity.ReservationsNr,
-                Von = entity.Von,
-                Bis = entity.Bis,
-                RowVersion = entity.RowVersion,
-                Auto = ConvertToDto(entity.Auto),
-                Kunde = ConvertToDto(entity.Kunde)
-            };
-        }
-        public static List<Reservation> ConvertToEntities(this IEnumerable<ReservationDto> dtos)
-        {
-            return ConvertGenericList(dtos, ConvertToEntity);
-        }
-        public static List<ReservationDto> ConvertToDtos(this IEnumerable<Reservation> entities)
-        {
-            return ConvertGenericList(entities, ConvertToDto);
-        }
-        #endregion
+                if (entity == null) { return null; }
 
-        private static List<TTarget> ConvertGenericList<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, TTarget> converter)
-        {
-            if (source == null) { return null; }
-            if (converter == null) { return null; }
+                return new KundeDto
+                {
+                    Id = entity.Id,
+                    Nachname = entity.Nachname,
+                    Vorname = entity.Vorname,
+                    Geburtsdatum = entity.Geburtsdatum,
+                    RowVersion = entity.RowVersion
+                };
+            }
+            public static List<Kunde> ConvertToEntities(this IEnumerable<KundeDto> dtos)
+            {
+                return ConvertGenericList(dtos, ConvertToEntity);
+            }
+            public static List<KundeDto> ConvertToDtos(this IEnumerable<Kunde> entities)
+            {
+                return ConvertGenericList(entities, ConvertToDto);
+            }
+            #endregion
+            #region Reservation
+            public static Reservation ConvertToEntity(this ReservationDto dto)
+            {
+                if (dto == null) { return null; }
 
-            return source.Select(converter).ToList();
-        }
+                Reservation reservation = new Reservation
+                {
+                    ReservationsNr = dto.ReservationsNr,
+                    Von = dto.Von,
+                    Bis = dto.Bis,
+                    AutoId = dto.Auto.Id,
+                    KundeId = dto.Kunde.Id,
+                    RowVersion = dto.RowVersion
+                };
+
+                return reservation;
+            }
+            public static ReservationDto ConvertToDto(this Reservation entity)
+            {
+                if (entity == null) { return null; }
+
+                return new ReservationDto
+                {
+                    ReservationsNr = entity.ReservationsNr,
+                    Von = entity.Von,
+                    Bis = entity.Bis,
+                    RowVersion = entity.RowVersion,
+                    Auto = ConvertToDto(entity.Auto),
+                    Kunde = ConvertToDto(entity.Kunde)
+                };
+            }
+            public static List<Reservation> ConvertToEntities(this IEnumerable<ReservationDto> dtos)
+            {
+                return ConvertGenericList(dtos, ConvertToEntity);
+            }
+            public static List<ReservationDto> ConvertToDtos(this IEnumerable<Reservation> entities)
+            {
+                return ConvertGenericList(entities, ConvertToDto);
+            }
+            #endregion
+
+            private static List<TTarget> ConvertGenericList<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, TTarget> converter)
+            {
+                if (source == null) { return null; }
+                if (converter == null) { return null; }
+
+                return source.Select(converter).ToList();
+            }*/
     }
 
 }
+#endregion
