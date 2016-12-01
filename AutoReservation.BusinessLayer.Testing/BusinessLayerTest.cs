@@ -32,7 +32,11 @@ namespace AutoReservation.BusinessLayer.Testing
         [TestMethod]
         public void UpdateAutoTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            Auto car = Target.getCarByPrimaryKey(1);
+            car.Marke = "BMW";
+            Target.updateCar(car);
+            car = Target.getCarByPrimaryKey(1);
+            Assert.AreEqual("BMW", car.Marke);
         }
 
         [TestMethod]
@@ -45,13 +49,6 @@ namespace AutoReservation.BusinessLayer.Testing
         public void UpdateReservationTest()
         {
             //Assert.Inconclusive("Test not implemented.");
-        }
-
-        [TestMethod]
-        public void getAllCars()
-        {
-            //Assert.Inconclusive("Test not implemented.");
-            List<Auto> list = Target.getAllCars();
         }
 
     }
