@@ -34,13 +34,52 @@ namespace AutoReservation.BusinessLayer
                 return listOfAllCars;                                       
             }
         }
-        public Auto getCarByPrimaryKey(int key) { return null; }
+        public Auto getCarByPrimaryKey(int key) {            
+            using (var db = new AutoReservationContext())
+            {
+                var query = from Auto auto in db.Autos
+                            where auto.Id == key
+                            select auto;
 
-        public void addCar(Auto car) { }
+                foreach (Auto car in query) {
+                    return car;
+                }
+                return null;
+            }
+        }
 
-        public void updateCar(Auto car) { }
+        public void addCar(Auto car) {
+            using (var db = new AutoReservationContext())
+            {
+                db.Entry(car).State = EntityState.Added;
+                db.Autos.Add(car);
+                db.SaveChanges();
+            }
+        }
 
-        public void deleteCar(Auto car) { }
+        public void updateCar(Auto car) {
+            using (var db = new AutoReservationContext())
+            {
+                try
+                {
+                    db.Entry(car).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    throw CreateLocalOptimisticConcurrencyException(db, car);
+                }
+            }
+        }
+
+        public void deleteCar(Auto car) {
+            using (var db = new AutoReservationContext())
+            {
+                db.Entry(car).State = EntityState.Deleted;
+                db.Autos.Remove(car);
+                db.SaveChanges();
+            }
+        }
 
         // Customer
         public List<Kunde> getAllCustomers() { return null; }
