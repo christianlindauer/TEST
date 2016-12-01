@@ -2,6 +2,7 @@
 using AutoReservation.TestEnvironment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace AutoReservation.BusinessLayer.Testing
 {
@@ -44,6 +45,13 @@ namespace AutoReservation.BusinessLayer.Testing
         public void UpdateReservationTest()
         {
             //Assert.Inconclusive("Test not implemented.");
+        }
+
+        [TestMethod]
+        public void getAllCars()
+        {
+            //Assert.Inconclusive("Test not implemented.");
+            List<Auto> list = Target.getAllCars();
         }
 
     }

@@ -23,7 +23,17 @@ namespace AutoReservation.BusinessLayer
 
 
         // Car
-        public List<Auto> getAllCars() { return null; }
+        public List<Auto> getAllCars() {
+            List<Auto> listOfAllCars = new List<Auto>();
+            using (var db = new AutoReservationContext()) {
+                var query = from Auto auto in db.Autos
+                                           select auto;
+                foreach(Auto car in query){
+                    listOfAllCars.Add(car);
+                }                                             
+                return listOfAllCars;                                       
+            }
+        }
         public Auto getCarByPrimaryKey(int key) { return null; }
 
         public void addCar(Auto car) { }
