@@ -12,10 +12,12 @@ namespace AutoReservation.Service.Wcf.Testing
     public abstract class ServiceTestBase
     {
         protected abstract IAutoReservationService Target { get; }
+        AutoReservationService Service;
 
         [TestInitialize]
         public void InitializeTestData()
         {
+            Service = new AutoReservationService();
             TestEnvironmentHelper.InitializeTestData();
         }
 
@@ -24,19 +26,22 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void GetAutosTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            List<AutoDto> allCars = new List<AutoDto>();
+            allCars = Service.getAllCars();
+
+            Assert.AreEqual(3, allCars.Count, 0.1);
         }
 
         [TestMethod]
         public void GetKundenTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            //Assert.Inconclusive("Test not implemented.");
         }
 
         [TestMethod]
         public void GetReservationenTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            //Assert.Inconclusive("Test not implemented.");
         }
 
         #endregion
@@ -46,19 +51,21 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void GetAutoByIdTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            int id = 1;
+
+            Assert.AreEqual(id, Service.getCarByPrimaryKey(id).Id, 0.1);
         }
 
         [TestMethod]
         public void GetKundeByIdTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            //Assert.Inconclusive("Test not implemented.");
         }
 
         [TestMethod]
         public void GetReservationByNrTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            //Assert.Inconclusive("Test not implemented.");
         }
 
         #endregion
@@ -68,7 +75,8 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void GetAutoByIdWithIllegalIdTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            int id = 0;
+            Assert.AreSame(null, Service.getCarByPrimaryKey(id));
         }
 
         [TestMethod]
@@ -89,13 +97,23 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void InsertAutoTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            AutoDto car = new AutoDto();
+            car.Marke = "HarambeCar";
+            car.Tagestarif = 200;
+            car.Id = 4;
+            car.AutoKlasse = AutoKlasse.Mittelklasse;
+            Service.addCar(car);
+            AutoDto car2 = Service.getCarByPrimaryKey(4);
+            car2.RowVersion = null;
+            Assert.AreEqual(car2, car);
+            //TODO: Assert.AreEqual<AutoDto>(....); ????? Eigene AreEqual Methode implementieren, ob das AutoDto gleich ist anhand Marke == Marke.. etc.
+            
         }
 
         [TestMethod]
         public void InsertKundeTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            //Assert.Inconclusive("Test not implemented.");
         }
 
         [TestMethod]

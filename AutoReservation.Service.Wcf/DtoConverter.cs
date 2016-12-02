@@ -55,7 +55,7 @@ namespace AutoReservation.Service.Wcf
 
             return dto;
         }
-        /*
+        
             public static List<Auto> ConvertToEntities(this IEnumerable<AutoDto> dtos)
             {
                 return ConvertGenericList(dtos, ConvertToEntity);
@@ -64,7 +64,7 @@ namespace AutoReservation.Service.Wcf
             {
                 return ConvertGenericList(entities, ConvertToDto);
             }
-
+        /*
             #endregion
             #region Kunde
             public static Kunde ConvertToEntity(this KundeDto dto)
@@ -142,14 +142,14 @@ namespace AutoReservation.Service.Wcf
                 return ConvertGenericList(entities, ConvertToDto);
             }
             #endregion
-
+            */
             private static List<TTarget> ConvertGenericList<TSource, TTarget>(this IEnumerable<TSource> source, Func<TSource, TTarget> converter)
             {
                 if (source == null) { return null; }
                 if (converter == null) { return null; }
 
                 return source.Select(converter).ToList();
-            }*/
+            }
     }
 
 }

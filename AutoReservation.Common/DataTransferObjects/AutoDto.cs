@@ -7,14 +7,54 @@ namespace AutoReservation.Common.DataTransferObjects
     [DataContract]
     public class AutoDto : DtoBase<AutoDto>
     {
-        [DataMember]
-        public int Tagestarif { get; set; }
+        private int tagesTarif;
 
         [DataMember]
-        public string Marke { get; set; }
+        public int Tagestarif
+        {
+            get { return tagesTarif; }
+            set
+            {
+                if (tagesTarif != value)
+                {
+                    tagesTarif = value;
+                    OnPropertyChanged(nameof(Tagestarif));
+                }
+            }
+        }
+
+        private string marke;
 
         [DataMember]
-        public int? Basistarif { get; set; }
+        public string Marke
+        {
+            get { return marke; }
+            set
+            {
+                if (marke != value)
+                {
+                    marke = value;
+                    OnPropertyChanged(nameof(Marke));
+                }
+            }
+        }
+
+        private int? basisTarif;
+
+
+        [DataMember]
+        public int? Basistarif
+        {
+            get { return basisTarif; }
+            set
+            {
+                if (basisTarif != value)
+                {
+                    basisTarif = value;
+                    OnPropertyChanged(nameof(Basistarif));
+                }
+            }
+        }
 
         private int id;
 
@@ -48,8 +88,21 @@ namespace AutoReservation.Common.DataTransferObjects
             }
         }
 
+        private byte[] rowVersion;
+
         [DataMember]
-        public byte[] RowVersion { get; set; }
+        public byte[] RowVersion
+        {
+            get { return rowVersion; }
+            set
+            {
+                if (rowVersion != value)
+                {
+                    rowVersion = value;
+                    OnPropertyChanged(nameof(RowVersion));
+                }
+            }
+        }
 
         public AutoDto(int basistarif, int id, string marke, int tagestarif, AutoKlasse klasse, byte[] rowVersion)
         {
