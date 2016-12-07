@@ -15,6 +15,7 @@ namespace AutoReservation.Service.Wcf.Testing
     {
         protected abstract IAutoReservationService Target { get; }
         AutoReservationService Service;
+        const double DELTA = 0.1;
 
         [TestInitialize]
         public void InitializeTestData()
@@ -31,19 +32,25 @@ namespace AutoReservation.Service.Wcf.Testing
             List<AutoDto> allCars = new List<AutoDto>();
             allCars = Service.getAllCars();
 
-            Assert.AreEqual(3, allCars.Count, 0.1);
+            Assert.AreEqual(3, allCars.Count, DELTA);
         }
 
         [TestMethod]
         public void GetKundenTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            List<KundeDto> allCustomers = new List<KundeDto>();
+            allCustomers = Service.getAllCustomers();
+
+            Assert.AreEqual(4, allCustomers.Count, DELTA);
         }
 
         [TestMethod]
         public void GetReservationenTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            List<ReservationDto> allReserverations = new List<ReservationDto>();
+            allReserverations = Service.getAllReservations();
+
+            Assert.AreEqual(3, allReserverations.Count, DELTA);
         }
 
         #endregion
@@ -54,20 +61,21 @@ namespace AutoReservation.Service.Wcf.Testing
         public void GetAutoByIdTest()
         {
             int id = 1;
-
-            Assert.AreEqual(id, Service.getCarByPrimaryKey(id).Id, 0.1);
+            Assert.AreEqual(id, Service.getCarByPrimaryKey(id).Id, DELTA);
         }
 
         [TestMethod]
         public void GetKundeByIdTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            int id = 1;
+            Assert.AreEqual(id, Service.getCustomerByPrimaryKey(id).Id, DELTA);
         }
 
         [TestMethod]
         public void GetReservationByNrTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            int id = 1;
+            Assert.AreEqual(id, Service.getReservationByPrimaryKey(id).Id, DELTA);
         }
 
         #endregion
@@ -84,12 +92,15 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void GetKundeByIdWithIllegalIdTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            int id = 0;
+            Assert.AreSame(null, Service.getCustomerByPrimaryKey(id));
         }
 
         [TestMethod]
         public void GetReservationByNrWithIllegalIdTest()
         {
+            int id = 0;
+            Assert.AreSame(null, Service.getReservationByPrimaryKey(id));
         }
 
         #endregion
@@ -106,7 +117,6 @@ namespace AutoReservation.Service.Wcf.Testing
             car.AutoKlasse = AutoKlasse.Mittelklasse;
             Service.addCar(car);
             AutoDto testingCar = Service.getCarByPrimaryKey(4);
-            testingCar.RowVersion = null;
             Assert.AreEqual(testingCar.Id, 4);
             Assert.AreEqual(testingCar.Marke, "HarambeCar");
             Assert.AreEqual(testingCar.Tagestarif, 200);
@@ -117,13 +127,35 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void InsertKundeTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            KundeDto customer = new KundeDto();
+            customer.Id = 5;
+            customer.Nachname = "Obama";
+            customer.Vorname = "Barack";
+            customer.Geburtsdatum = new DateTime(1981, 05, 05);
+            Service.addCustomer(customer);
+            KundeDto testingCustomer = Service.getCustomerByPrimaryKey(5);
+            Assert.AreEqual(testingCustomer.Id, 5);
+            Assert.AreEqual(testingCustomer.Nachname, "Barack");
+            Assert.AreEqual(testingCustomer.Vorname, "Obama");
+            Assert.AreEqual(testingCustomer.Geburtsdatum, new DateTime(1981, 05, 05));
         }
 
         [TestMethod]
         public void InsertReservationTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            ReservationDto reservation = new ReservationDto();
+            reservation.ReservationsNr = 4;
+            reservation.AutoId = "1";
+            reservation.KundeId = "1";
+            reservation.Von = new DateTime(1981, 05, 05);
+            reservation.Bis = new DateTime(1981, 05, 05);
+            Service.addCustomer(reservation);
+            ReservationDto testingReservation = Service.getReservationByPrimaryKey(4);
+            Assert.AreEqual(testingReservation.Id, 4);
+            Assert.AreEqual(testingReservation.AutoId, "1");
+            Assert.AreEqual(testingReservation.KundeId, "1");
+            Assert.AreEqual(testingReservation.Von, new DateTime(1981, 05, 05));
+            Assert.AreEqual(testingReservation.Bis, new DateTime(1981, 05, 05));
         }
 
         #endregion
@@ -142,13 +174,17 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void DeleteKundeTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            KundeDto testingCustomer = Service.getCustomerByPrimaryKey(3);
+            Service.deleteCustomer(testingCustomer);
+            Assert.IsNull(Service.getCustomerByPrimaryKey(3));
         }
 
         [TestMethod]
         public void DeleteReservationTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            ReservationDto testingReservation = Service.getReservationByPrimaryKey(3);
+            Service.deleteReservation(testingReservation);
+            Assert.IsNull(Service.getReservationByPrimaryKey(3));
         }
 
         #endregion
@@ -167,13 +203,19 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void UpdateKundeTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            KundeDto testingCustomer = Service.getCustomerByPrimaryKey(1);
+            testingCustomer.Nachname = "KimJongUn";
+            Service.updateCustomer(testingCustomer);
+            Assert.AreEqual(Service.getCarByPrimaryKey(1).Nachname, "KimJongUn");
         }
 
         [TestMethod]
         public void UpdateReservationTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            ReservationDto testingReservation = Service.getReservationByPrimaryKey(1);
+            testingReservation.AutoId = 2;
+            Service.updateReservation(testingReservation);
+            Assert.AreEqual(Service.getReservationByPrimaryKey(1).AutoId, 1, DELTA);
         }
 
         #endregion
@@ -193,15 +235,27 @@ namespace AutoReservation.Service.Wcf.Testing
         }
 
         [TestMethod]
+        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Kunde>))]
         public void UpdateKundeWithOptimisticConcurrencyTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            KundeDto testingCustomer1 = Service.getCustomerByPrimaryKey(1);
+            KundeDto testingCustomer2 = Service.getCustomerByPrimaryKey(1);
+            testingCustomer1.Nachname = "Clinton";
+            testingCustomer2.Nachname = "Gollum";
+            Service.updateCar(testingCustomer1);
+            Service.updateCar(testingCustomer2);
         }
 
         [TestMethod]
+        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Reservation>))]
         public void UpdateReservationWithOptimisticConcurrencyTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            ReservationDto testingReservation1 = Service.getReservationByPrimaryKey(1);
+            ReservationDto testingReservation2 = Service.getReservationByPrimaryKey(1);
+            testingReservation1.KundeId = "2";
+            testingReservation2.KundeId = "2";
+            Service.updateCar(testingReservation1);
+            Service.updateCar(testingReservation2);
         }
 
         #endregion
