@@ -1,33 +1,58 @@
-﻿using System.Collections.Generic;
-using AutoReservation.Common.DataTransferObjects;
-using AutoReservation.Common.Interfaces;
+﻿//using System;
+//using System.Collections.Generic;
+//using AutoReservation.Common.DataTransferObjects;
+//using AutoReservation.Common.Interfaces;
 
-namespace AutoReservation.Ui.Factory
-{
-    public class NullServiceFactory : IServiceFactory
-    {
-        public IAutoReservationService GetService()
-        {
-            return new NullAutoReservationService();
-        }
-    }
+//namespace AutoReservation.Ui.Factory
+//{
+//    public class NullServiceFactory : IServiceFactory
+//    {
+//        public IAutoReservationService GetService()
+//        {
+//            return new NullAutoReservationService();
+//        }
+//    }
 
-    public class NullAutoReservationService : IAutoReservationService
-    {
-        public List<AutoDto> Autos => new List<AutoDto>();
-        public List<KundeDto> Kunden => new List<KundeDto>();
-        public List<ReservationDto> Reservationen => new List<ReservationDto>();
-        public AutoDto GetAutoById(int id) => null;
-        public KundeDto GetKundeById(int id) => null;
-        public ReservationDto GetReservationByNr(int reservationsNr) => null;
-        public AutoDto InsertAuto(AutoDto auto) => null;
-        public KundeDto InsertKunde(KundeDto kunde) => null;
-        public ReservationDto InsertReservation(ReservationDto reservation) => null;
-        public AutoDto UpdateAuto(AutoDto auto) => null;
-        public KundeDto UpdateKunde(KundeDto kunde) => null;
-        public ReservationDto UpdateReservation(ReservationDto reservation) => null;
-        public void DeleteAuto(AutoDto auto) { }
-        public void DeleteKunde(KundeDto kunde) { }
-        public void DeleteReservation(ReservationDto reservation) { }
-    }
-}
+//    public class NullAutoReservationService : IAutoReservationService
+//    {
+//        public List<AutoDto> getAllCars() => new List<AutoDto>();
+//        public List<KundeDto> getAllCustomers() => new List<KundeDto>();
+//        public List<ReservationDto> getAllReservations() => new List<ReservationDto>();
+//        public AutoDto getCarByPrimaryKey(int key) => null;
+//        public KundeDto getCustomerByPrimaryKey(int key) => null;
+//        public ReservationDto getReservationByPrimaryKey(int key) => null;
+//        //public AutoDto addCar(AutoDto car) => null;
+//        //public KundeDto addCustomer(KundeDto customer) => null;
+//        //public ReservationDto addReservation(ReservationDto reservation) => null;
+//        //public AutoDto updateCar(AutoDto car) => null;
+//        //public KundeDto updateCustomer(KundeDto customer) => null;
+//        //public ReservationDto updateReservation(ReservationDto reservation) => null;
+//        public void deleteCar(AutoDto car) { }
+//        public void deleteCustomer(KundeDto customer) { }
+//        public void deleteReservation(ReservationDto reservation) { }
+
+//        void IAutoReservationService.addCar(AutoDto car)
+//        {
+//        }
+
+//        void IAutoReservationService.updateCar(AutoDto car)
+//        {
+//        }
+
+//        void IAutoReservationService.addCustomer(KundeDto customer)
+//        {
+//        }
+
+//        void IAutoReservationService.updateCustomer(KundeDto customer)
+//        {
+//        }
+
+//        void IAutoReservationService.addReservation(ReservationDto reservation)
+//        {
+//        }
+
+//        void IAutoReservationService.updateReservation(ReservationDto reservation)
+//        {
+//        }
+//    }
+//}

@@ -51,10 +51,10 @@ namespace AutoReservation.Ui.ViewModels
         protected override void Load()
         {
             Kunden.Clear();
-            foreach (var kunde in Service.Kunden)
+            /*foreach (var kunde in Service.Kunden)
             {
                 Kunden.Add(kunde);
-            }
+            }*/
             SelectedKunde = Kunden.FirstOrDefault();
         }
 
@@ -81,14 +81,14 @@ namespace AutoReservation.Ui.ViewModels
         {
             foreach (var kunde in Kunden)
             {
-                if (kunde.Id == default(int))
+               /* if (kunde.Id == default(int))
                 {
                     Service.InsertKunde(kunde);
                 }
                 else
                 {
                     Service.UpdateKunde(kunde);
-                }
+                }*/
             }
             Load();
         }
@@ -100,7 +100,8 @@ namespace AutoReservation.Ui.ViewModels
                 return false;
             }
 
-            return Validate(Kunden);
+            return false;
+            //return Validate(Kunden);
         }
 
 
@@ -120,7 +121,7 @@ namespace AutoReservation.Ui.ViewModels
 
         private void New()
         {
-            Kunden.Add(new KundeDto { Geburtsdatum = DateTime.Today });
+            //Kunden.Add(new KundeDto { Geburtsdatum = DateTime.Today });
         }
 
         private bool CanNew()
@@ -144,16 +145,17 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-            Service.DeleteKunde(SelectedKunde);
+           // Service.DeleteKunde(SelectedKunde);
             Load();
         }
 
         private bool CanDelete()
         {
             return
-                ServiceExists &&
-                SelectedKunde != null &&
-                SelectedKunde.Id != default(int);
+                /* ServiceExists &&
+                 SelectedKunde != null &&
+                 SelectedKunde.Id != default(int);*/
+                false;
         }
 
         #endregion

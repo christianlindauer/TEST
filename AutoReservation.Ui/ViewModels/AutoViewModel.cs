@@ -49,7 +49,7 @@ namespace AutoReservation.Ui.ViewModels
         protected override void Load()
         {
             Autos.Clear();
-            foreach (var auto in Service.Autos)
+            foreach (var auto in Service.getAllCars())
             {
                 Autos.Add(auto);
             }
@@ -81,11 +81,11 @@ namespace AutoReservation.Ui.ViewModels
             {
                 if (auto.Id == default(int))
                 {
-                    Service.InsertAuto(auto);
+                    Service.addCar(auto);
                 }
                 else
                 {
-                    Service.UpdateAuto(auto);
+                    Service.updateCar(auto);
                 }
             }
             Load();
@@ -141,7 +141,7 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-            Service.DeleteAuto(SelectedAuto);
+            Service.deleteCar(SelectedAuto);
             Load();
         }
 
