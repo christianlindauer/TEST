@@ -50,14 +50,5 @@ namespace AutoReservation.BusinessLayer.Testing
         {
             //Assert.Inconclusive("Test not implemented.");
         }
-
-        [TestMethod]
-        public void getAllCars()
-        {
-            //Assert.Inconclusive("Test not implemented.");
-            List<Auto> list = Target.getAllCars();
-        }
-
     }
-
 }
