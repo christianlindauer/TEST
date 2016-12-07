@@ -1,7 +1,9 @@
-﻿using AutoReservation.Common.DataTransferObjects;
+﻿using AutoReservation.BusinessLayer;
+using AutoReservation.Common.DataTransferObjects;
 using AutoReservation.Common.Interfaces;
 using AutoReservation.TestEnvironment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using AutoReservation.Dal.Entities;
 using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -103,11 +105,13 @@ namespace AutoReservation.Service.Wcf.Testing
             car.Id = 4;
             car.AutoKlasse = AutoKlasse.Mittelklasse;
             Service.addCar(car);
-            AutoDto car2 = Service.getCarByPrimaryKey(4);
-            car2.RowVersion = null;
-            Assert.AreEqual(car2, car);
-            //TODO: Assert.AreEqual<AutoDto>(....); ????? Eigene AreEqual Methode implementieren, ob das AutoDto gleich ist anhand Marke == Marke.. etc.
-            
+            AutoDto testingCar = Service.getCarByPrimaryKey(4);
+            testingCar.RowVersion = null;
+            Assert.AreEqual(testingCar.Id, 4);
+            Assert.AreEqual(testingCar.Marke, "HarambeCar");
+            Assert.AreEqual(testingCar.Tagestarif, 200);
+            Assert.AreEqual(testingCar.AutoKlasse, AutoKlasse.Mittelklasse);
+                        
         }
 
         [TestMethod]
@@ -129,7 +133,10 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void DeleteAutoTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            AutoDto testingCar = Service.getCarByPrimaryKey(3);
+            Service.deleteCar(testingCar);
+            Assert.IsNull(Service.getCarByPrimaryKey(3));
+
         }
 
         [TestMethod]
@@ -151,7 +158,10 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void UpdateAutoTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            AutoDto testingCar = Service.getCarByPrimaryKey(2);
+            testingCar.Marke = "KimJongUnCar";
+            Service.updateCar(testingCar);
+            Assert.AreEqual(Service.getCarByPrimaryKey(2).Marke, "KimJongUnCar");
         }
 
         [TestMethod]
@@ -171,9 +181,15 @@ namespace AutoReservation.Service.Wcf.Testing
         #region Update with optimistic concurrency violation
 
         [TestMethod]
+        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Auto>))]
         public void UpdateAutoWithOptimisticConcurrencyTest()
         {
-            Assert.Inconclusive("Test not implemented.");
+            AutoDto testingCar1 = Service.getCarByPrimaryKey(1);
+            AutoDto testingCar2 = Service.getCarByPrimaryKey(1);
+            testingCar1.Marke = "Trabant";
+            testingCar2.Marke = "DominikCar";
+            Service.updateCar(testingCar1);
+            Service.updateCar(testingCar2);
         }
 
         [TestMethod]
