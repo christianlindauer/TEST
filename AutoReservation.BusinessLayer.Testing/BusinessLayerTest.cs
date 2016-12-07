@@ -42,13 +42,21 @@ namespace AutoReservation.BusinessLayer.Testing
         [TestMethod]
         public void UpdateKundeTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            Kunde customer = Target.getCustomerByPrimaryKey(1);
+            customer.Nachname = "Hampelmann";
+            Target.updateCustomer(customer);
+            customer = Target.getCustomerByPrimaryKey(1);
+            Assert.AreEqual("Hampelmann", customer.Nachname);
         }
 
         [TestMethod]
         public void UpdateReservationTest()
         {
-            //Assert.Inconclusive("Test not implemented.");
+            Reservation reservation = Target.getReservationByPrimaryKey(1);
+            reservation.Von = new DateTime(2010, 12, 10);
+            Target.updateReservation(reservation);
+            reservation = Target.getReservationByPrimaryKey(1);
+            Assert.AreEqual(new DateTime(2010, 12, 10), reservation.Von);            
         }
     }
 }
