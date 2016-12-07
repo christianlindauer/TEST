@@ -37,7 +37,7 @@ namespace AutoReservation.Common.Interfaces
         void updateCustomer(KundeDto customer);
 
         [OperationContract]
-        void deleteCustomer(KundeDto customer));
+        void deleteCustomer(KundeDto customer);
 
         // Reservation
         [OperationContract]
