@@ -8,22 +8,6 @@ namespace AutoReservation.Common.DataTransferObjects
     [DataContract]
     public class ReservationDto : DtoBase<ReservationDto>
     {
-        private int autoId;
-
-        [DataMember]
-        public int AutoId
-        {
-            get { return autoId; }
-            set
-            {
-                if (autoId != value)
-                {
-                    autoId = value;
-                    OnPropertyChanged(nameof(AutoId));
-                }
-            }
-        }
-
         private DateTime bis;
 
         [DataMember]
@@ -36,22 +20,6 @@ namespace AutoReservation.Common.DataTransferObjects
                 {
                     bis = value;
                     OnPropertyChanged(nameof(Bis));
-                }
-            }
-        }
-
-        private int kundeId;
-
-        [DataMember]
-        public int KundeId
-        {
-            get { return kundeId; }
-            set
-            {
-                if (kundeId != value)
-                {
-                    kundeId = value;
-                    OnPropertyChanged(nameof(KundeId));
                 }
             }
         }
