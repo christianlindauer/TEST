@@ -75,7 +75,7 @@ namespace AutoReservation.Service.Wcf.Testing
         public void GetReservationByNrTest()
         {
             int id = 1;
-            Assert.AreEqual(id, Service.getReservationByPrimaryKey(id).Id, DELTA);
+            Assert.AreEqual(id, Service.getReservationByPrimaryKey(id).ReservationsNr, DELTA);
         }
 
         #endregion
@@ -145,15 +145,15 @@ namespace AutoReservation.Service.Wcf.Testing
         {
             ReservationDto reservation = new ReservationDto();
             reservation.ReservationsNr = 4;
-            reservation.AutoId = "1";
-            reservation.KundeId = "1";
+            reservation.AutoId = 1;
+            reservation.KundeId = 1;
             reservation.Von = new DateTime(1981, 05, 05);
             reservation.Bis = new DateTime(1981, 05, 05);
-            Service.addCustomer(reservation);
+            Service.addReservation(reservation);
             ReservationDto testingReservation = Service.getReservationByPrimaryKey(4);
-            Assert.AreEqual(testingReservation.Id, 4);
-            Assert.AreEqual(testingReservation.AutoId, "1");
-            Assert.AreEqual(testingReservation.KundeId, "1");
+            Assert.AreEqual(testingReservation.ReservationsNr, 4);
+            Assert.AreEqual(testingReservation.AutoId, 1);
+            Assert.AreEqual(testingReservation.KundeId, 1);
             Assert.AreEqual(testingReservation.Von, new DateTime(1981, 05, 05));
             Assert.AreEqual(testingReservation.Bis, new DateTime(1981, 05, 05));
         }
@@ -206,7 +206,7 @@ namespace AutoReservation.Service.Wcf.Testing
             KundeDto testingCustomer = Service.getCustomerByPrimaryKey(1);
             testingCustomer.Nachname = "KimJongUn";
             Service.updateCustomer(testingCustomer);
-            Assert.AreEqual(Service.getCarByPrimaryKey(1).Nachname, "KimJongUn");
+            Assert.AreEqual(Service.getCustomerByPrimaryKey(1).Nachname, "KimJongUn");
         }
 
         [TestMethod]
@@ -242,8 +242,8 @@ namespace AutoReservation.Service.Wcf.Testing
             KundeDto testingCustomer2 = Service.getCustomerByPrimaryKey(1);
             testingCustomer1.Nachname = "Clinton";
             testingCustomer2.Nachname = "Gollum";
-            Service.updateCar(testingCustomer1);
-            Service.updateCar(testingCustomer2);
+            Service.updateCustomer(testingCustomer1);
+            Service.updateCustomer(testingCustomer2);
         }
 
         [TestMethod]
@@ -252,10 +252,10 @@ namespace AutoReservation.Service.Wcf.Testing
         {
             ReservationDto testingReservation1 = Service.getReservationByPrimaryKey(1);
             ReservationDto testingReservation2 = Service.getReservationByPrimaryKey(1);
-            testingReservation1.KundeId = "2";
-            testingReservation2.KundeId = "2";
-            Service.updateCar(testingReservation1);
-            Service.updateCar(testingReservation2);
+            testingReservation1.KundeId = 2;
+            testingReservation2.KundeId = 3;
+            Service.updateReservation(testingReservation1);
+            Service.updateReservation(testingReservation2);
         }
 
         #endregion

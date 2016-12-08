@@ -31,12 +31,14 @@ namespace AutoReservation.Service.Wcf
 
         public void addCustomer(KundeDto customer)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.addCustomer(DtoConverter.ConvertToEntity(customer));
         }
 
         public void addReservation(ReservationDto reservation)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.addReservation(DtoConverter.ConvertToEntity(reservation));
         }
 
         public void deleteCar(AutoDto car)
@@ -47,12 +49,14 @@ namespace AutoReservation.Service.Wcf
 
         public void deleteCustomer(KundeDto customer)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.deleteCustomer(DtoConverter.ConvertToEntity(customer));
         }
 
         public void deleteReservation(ReservationDto reservation)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.deleteReservation(DtoConverter.ConvertToEntity(reservation));
         }
 
         public List<AutoDto> getAllCars()
@@ -63,12 +67,14 @@ namespace AutoReservation.Service.Wcf
 
         public List<KundeDto> getAllCustomers()
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            return DtoConverter.ConvertToDtos(Component.getAllCustomers());
         }
 
         public List<ReservationDto> getAllReservations()
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            return DtoConverter.ConvertToDtos(Component.getAllReservations());
         }
 
         public AutoDto getCarByPrimaryKey(int key)
@@ -79,12 +85,14 @@ namespace AutoReservation.Service.Wcf
 
         public KundeDto getCustomerByPrimaryKey(int key)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            return DtoConverter.ConvertToDto(Component.getCustomerByPrimaryKey(key));
         }
 
         public ReservationDto getReservationByPrimaryKey(int key)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            return DtoConverter.ConvertToDto(Component.getReservationByPrimaryKey(key));
         }
 
         public void updateCar(AutoDto car)
@@ -95,12 +103,14 @@ namespace AutoReservation.Service.Wcf
 
         public void updateCustomer(KundeDto customer)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.updateCustomer(DtoConverter.ConvertToEntity(customer));
         }
 
         public void updateReservation(ReservationDto reservation)
         {
-            throw new NotImplementedException();
+            WriteActualMethod();
+            Component.updateReservation(DtoConverter.ConvertToEntity(reservation));
         }
     }
 }

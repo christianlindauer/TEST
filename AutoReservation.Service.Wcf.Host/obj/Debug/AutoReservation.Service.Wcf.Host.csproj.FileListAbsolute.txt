@@ -14,3 +14,5 @@ E:\DotNet\AutoReservation.Service.Wcf.Host\bin\Debug\EntityFramework.SqlServer.x
 E:\DotNet\AutoReservation.Service.Wcf.Host\bin\Debug\AutoReservation.Dal.pdb
 E:\DotNet\AutoReservation.Service.Wcf.Host\obj\Debug\AutoReservation.Service.Wcf.Host.exe
 E:\DotNet\AutoReservation.Service.Wcf.Host\obj\Debug\AutoReservation.Service.Wcf.Host.pdb
+E:\DotNet\AutoReservation.Service.Wcf.Host\bin\Debug\AutoReservation.BusinessLayer.dll
+E:\DotNet\AutoReservation.Service.Wcf.Host\bin\Debug\AutoReservation.BusinessLayer.pdb

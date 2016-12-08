@@ -17,3 +17,4 @@ E:\DotNet\AutoReservation.Common\bin\Debug\EntityFramework.xml
 E:\DotNet\AutoReservation.Common\bin\Debug\EntityFramework.SqlServer.xml
 E:\DotNet\AutoReservation.Common\obj\Debug\AutoReservation.Common.dll
 E:\DotNet\AutoReservation.Common\obj\Debug\AutoReservation.Common.pdb
+E:\DotNet\AutoReservation.Common\obj\Debug\AutoReservation.Common.csprojResolveAssemblyReference.cache
