@@ -143,17 +143,20 @@ namespace AutoReservation.Service.Wcf.Testing
         [TestMethod]
         public void InsertReservationTest()
         {
+
+            AutoDto car = Service.getCarByPrimaryKey(1);
+            KundeDto customer = Service.getCustomerByPrimaryKey(1);
             ReservationDto reservation = new ReservationDto();
-            reservation.ReservationsNr = 4;
-            reservation.AutoId = 1;
-            reservation.KundeId = 1;
+            reservation.Auto = car;
+            reservation.Kunde = customer;
+            
             reservation.Von = new DateTime(1981, 05, 05);
             reservation.Bis = new DateTime(1981, 05, 05);
             Service.addReservation(reservation);
             ReservationDto testingReservation = Service.getReservationByPrimaryKey(4);
             Assert.AreEqual(testingReservation.ReservationsNr, 4);
-            Assert.AreEqual(testingReservation.AutoId, 1);
-            Assert.AreEqual(testingReservation.KundeId, 1);
+            Assert.AreEqual(testingReservation.Kunde, customer);
+            Assert.AreEqual(testingReservation.Kunde, "Nass");
             Assert.AreEqual(testingReservation.Von, new DateTime(1981, 05, 05));
             Assert.AreEqual(testingReservation.Bis, new DateTime(1981, 05, 05));
         }
@@ -213,9 +216,9 @@ namespace AutoReservation.Service.Wcf.Testing
         public void UpdateReservationTest()
         {
             ReservationDto testingReservation = Service.getReservationByPrimaryKey(1);
-            testingReservation.AutoId = 2;
+            testingReservation.ReservationsNr = 2;
             Service.updateReservation(testingReservation);
-            Assert.AreEqual(Service.getReservationByPrimaryKey(1).AutoId, 1, DELTA);
+            Assert.AreEqual(Service.getReservationByPrimaryKey(2).ReservationsNr, 2, DELTA);
         }
 
         #endregion
@@ -252,8 +255,8 @@ namespace AutoReservation.Service.Wcf.Testing
         {
             ReservationDto testingReservation1 = Service.getReservationByPrimaryKey(1);
             ReservationDto testingReservation2 = Service.getReservationByPrimaryKey(1);
-            testingReservation1.KundeId = 2;
-            testingReservation2.KundeId = 3;
+            testingReservation1.ReservationsNr = 2;
+            testingReservation2.ReservationsNr = 3;
             Service.updateReservation(testingReservation1);
             Service.updateReservation(testingReservation2);
         }
