@@ -213,9 +213,9 @@ namespace AutoReservation.Service.Wcf.Testing
         public void UpdateReservationTest()
         {
             ReservationDto testingReservation = Service.getReservationByPrimaryKey(1);
-            testingReservation.ReservationsNr = 2;
+            testingReservation.Kunde = Service.getCustomerByPrimaryKey(2);
             Service.updateReservation(testingReservation);
-            Assert.AreEqual(Service.getReservationByPrimaryKey(2).ReservationsNr, 2, DELTA);
+            Assert.AreEqual(Service.getReservationByPrimaryKey(1).Kunde.Id, 2, DELTA);
         }
 
         #endregion
@@ -252,8 +252,8 @@ namespace AutoReservation.Service.Wcf.Testing
         {
             ReservationDto testingReservation1 = Service.getReservationByPrimaryKey(1);
             ReservationDto testingReservation2 = Service.getReservationByPrimaryKey(1);
-            testingReservation1.ReservationsNr = 2;
-            testingReservation2.ReservationsNr = 3;
+            testingReservation1.Kunde = Service.getCustomerByPrimaryKey(2);
+            testingReservation2.Kunde = Service.getCustomerByPrimaryKey(3);
             Service.updateReservation(testingReservation1);
             Service.updateReservation(testingReservation2);
         }
