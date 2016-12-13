@@ -135,28 +135,25 @@ namespace AutoReservation.Service.Wcf.Testing
             Service.addCustomer(customer);
             KundeDto testingCustomer = Service.getCustomerByPrimaryKey(5);
             Assert.AreEqual(testingCustomer.Id, 5);
-            Assert.AreEqual(testingCustomer.Nachname, "Barack");
-            Assert.AreEqual(testingCustomer.Vorname, "Obama");
+            Assert.AreEqual(testingCustomer.Nachname, "Obama");
+            Assert.AreEqual(testingCustomer.Vorname, "Barack");
             Assert.AreEqual(testingCustomer.Geburtsdatum, new DateTime(1981, 05, 05));
         }
 
         [TestMethod]
         public void InsertReservationTest()
         {
-
-            AutoDto car = Service.getCarByPrimaryKey(1);
-            KundeDto customer = Service.getCustomerByPrimaryKey(1);
             ReservationDto reservation = new ReservationDto();
-            reservation.Auto = car;
-            reservation.Kunde = customer;
+            reservation.Auto = Service.getCarByPrimaryKey(1);
+            reservation.Kunde = Service.getCustomerByPrimaryKey(1);
             
             reservation.Von = new DateTime(1981, 05, 05);
             reservation.Bis = new DateTime(1981, 05, 05);
             Service.addReservation(reservation);
             ReservationDto testingReservation = Service.getReservationByPrimaryKey(4);
             Assert.AreEqual(testingReservation.ReservationsNr, 4);
-            Assert.AreEqual(testingReservation.Kunde, customer);
-            Assert.AreEqual(testingReservation.Kunde, "Nass");
+            Assert.AreEqual(testingReservation.Kunde.Id, 1);
+            Assert.AreEqual(testingReservation.Kunde.Nachname, "Nass");
             Assert.AreEqual(testingReservation.Von, new DateTime(1981, 05, 05));
             Assert.AreEqual(testingReservation.Bis, new DateTime(1981, 05, 05));
         }

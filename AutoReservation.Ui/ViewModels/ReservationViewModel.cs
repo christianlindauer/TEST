@@ -30,8 +30,8 @@ namespace AutoReservation.Ui.ViewModels
                 if (selectedReservation != value)
                 {
                     selectedReservation = value;
-                    //SelectedAutoId = value?.Auto != null ? value.Auto.Id : 0;
-                    //SelectedKundeId = value?.Kunde != null ? value.Kunde.Id : 0;
+                    SelectedAutoId = value?.Auto != null ? value.Auto.Id : 0;
+                    SelectedKundeId = value?.Kunde != null ? value.Kunde.Id : 0;
 
                     OnPropertyChanged(nameof(SelectedReservation));
                 }
@@ -49,7 +49,7 @@ namespace AutoReservation.Ui.ViewModels
                     selectedAutoId = value;
                     if (SelectedReservation != null)
                     {
-                        //SelectedReservation.Auto = Autos.SingleOrDefault(a => a.Id == value);
+                        SelectedReservation.Auto = Autos.SingleOrDefault(a => a.Id == value);
                     }
 
                     OnPropertyChanged(nameof(SelectedAutoId));
@@ -68,7 +68,7 @@ namespace AutoReservation.Ui.ViewModels
                     selectedKundeId = value;
                     if (SelectedReservation != null)
                     {
-                        //SelectedReservation.Kunde = Kunden.SingleOrDefault(k => k.Id == value);
+                        SelectedReservation.Kunde = Kunden.SingleOrDefault(k => k.Id == value);
                     }
 
                     OnPropertyChanged(nameof(SelectedKundeId));
@@ -107,18 +107,18 @@ namespace AutoReservation.Ui.ViewModels
             Kunden.Clear();
             Autos.Clear();
 
-           /* foreach (KundeDto kunde in Service.Kunden)
+           foreach (KundeDto kunde in Service.getAllCustomers())
             {
                 Kunden.Add(kunde);
             }
-            foreach (AutoDto auto in Service.Autos)
+            foreach (AutoDto auto in Service.getAllCars())
             {
                 Autos.Add(auto);
             }
-            foreach (ReservationDto reservation in Service.Reservationen)
+            foreach (ReservationDto reservation in Service.getAllReservations())
             {
                 Reservationen.Add(reservation);
-            }*/
+            }
             SelectedReservation = Reservationen.FirstOrDefault();
         }
 
@@ -145,14 +145,14 @@ namespace AutoReservation.Ui.ViewModels
         {
             foreach (var reservation in Reservationen)
             {
-               /* if (reservation.ReservationsNr == default(int))
+               if (reservation.ReservationsNr == default(int))
                 {
-                    Service.InsertReservation(reservation);
+                    Service.addReservation(reservation);
                 }
                 else
                 {
-                    Service.UpdateReservation(reservation);
-                }*/
+                    Service.updateReservation(reservation);
+                }
             }
             Load();
         }
@@ -163,8 +163,8 @@ namespace AutoReservation.Ui.ViewModels
             {
                 return false;
             }
-            return false;
-            //return Validate(Reservationen);
+
+            return Validate(Reservationen);
         }
 
         #endregion
@@ -183,11 +183,11 @@ namespace AutoReservation.Ui.ViewModels
 
         private void New()
         {
-            /*Reservationen.Add(new ReservationDto
+            Reservationen.Add(new ReservationDto
             {
                 Von = DateTime.Today,
                 Bis = DateTime.Today
-            });*/
+            });
         }
 
         private bool CanNew()
@@ -211,16 +211,16 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-            //Service.DeleteReservation(SelectedReservation);
+            Service.deleteReservation(SelectedReservation);
             Load();
         }
 
         private bool CanDelete()
         {
-            return false;
-               /* ServiceExists &&
+            return 
+               ServiceExists &&
                 SelectedReservation != null &&
-               // SelectedReservation.ReservationsNr != default(int);*/
+               SelectedReservation.ReservationsNr != default(int);
         }
 
         #endregion

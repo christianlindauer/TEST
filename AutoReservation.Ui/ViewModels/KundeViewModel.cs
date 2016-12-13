@@ -51,10 +51,10 @@ namespace AutoReservation.Ui.ViewModels
         protected override void Load()
         {
             Kunden.Clear();
-            /*foreach (var kunde in Service.Kunden)
+            foreach (var kunde in Service.getAllCustomers())
             {
                 Kunden.Add(kunde);
-            }*/
+            }
             SelectedKunde = Kunden.FirstOrDefault();
         }
 
@@ -81,14 +81,14 @@ namespace AutoReservation.Ui.ViewModels
         {
             foreach (var kunde in Kunden)
             {
-               /* if (kunde.Id == default(int))
+               if (kunde.Id == default(int))
                 {
-                    Service.InsertKunde(kunde);
+                    Service.addCustomer(kunde);
                 }
                 else
                 {
-                    Service.UpdateKunde(kunde);
-                }*/
+                    Service.updateCustomer(kunde);
+                }
             }
             Load();
         }
@@ -100,8 +100,8 @@ namespace AutoReservation.Ui.ViewModels
                 return false;
             }
 
-            return false;
-            //return Validate(Kunden);
+
+            return Validate(Kunden);
         }
 
 
@@ -121,7 +121,7 @@ namespace AutoReservation.Ui.ViewModels
 
         private void New()
         {
-            //Kunden.Add(new KundeDto { Geburtsdatum = DateTime.Today });
+            Kunden.Add(new KundeDto { Geburtsdatum = DateTime.Today });
         }
 
         private bool CanNew()
@@ -145,17 +145,17 @@ namespace AutoReservation.Ui.ViewModels
 
         private void Delete()
         {
-           // Service.DeleteKunde(SelectedKunde);
+           Service.deleteCustomer(SelectedKunde);
             Load();
         }
 
         private bool CanDelete()
         {
             return
-                /* ServiceExists &&
+                ServiceExists &&
                  SelectedKunde != null &&
-                 SelectedKunde.Id != default(int);*/
-                false;
+                 SelectedKunde.Id != default(int);
+              
         }
 
         #endregion
