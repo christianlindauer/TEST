@@ -150,6 +150,8 @@ namespace AutoReservation.BusinessLayer
             using (var db = new AutoReservationContext())
             {
                 var query = from Reservation res in db.Reservationen
+                            .Include(a => a.Auto)
+                            .Include(k => k.Kunde)
                             select res;
                 foreach (Reservation res in query)
                 {
@@ -163,6 +165,8 @@ namespace AutoReservation.BusinessLayer
             using (var db = new AutoReservationContext())
             {
                 var query = from Reservation res in db.Reservationen
+                            .Include(a => a.Auto)
+                            .Include(k => k.Kunde)
                             where res.ReservationsNr == key
                             select res;
 
