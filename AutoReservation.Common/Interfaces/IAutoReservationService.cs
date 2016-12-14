@@ -1,6 +1,9 @@
-﻿using AutoReservation.Common.DataTransferObjects;
+﻿using AutoReservation.BusinessLayer;
+using AutoReservation.Common.DataTransferObjects;
+using AutoReservation.Dal.Entities;
 using System.Collections.Generic;
 using System.ServiceModel;
+
 
 namespace AutoReservation.Common.Interfaces
 {
@@ -18,6 +21,7 @@ namespace AutoReservation.Common.Interfaces
         void addCar(AutoDto car);
 
         [OperationContract]
+        [FaultContract(typeof(LocalOptimisticConcurrencyException<Auto>))]
         void updateCar(AutoDto car);
 
         [OperationContract]
@@ -34,6 +38,7 @@ namespace AutoReservation.Common.Interfaces
         void addCustomer(KundeDto customer);
 
         [OperationContract]
+        [FaultContract(typeof(LocalOptimisticConcurrencyException<Kunde>))]
         void updateCustomer(KundeDto customer);
 
         [OperationContract]
@@ -50,6 +55,7 @@ namespace AutoReservation.Common.Interfaces
         void addReservation(ReservationDto reservation);
 
         [OperationContract]
+        [FaultContract(typeof(LocalOptimisticConcurrencyException<Reservation>))]
         void updateReservation(ReservationDto reservation);
 
         [OperationContract]

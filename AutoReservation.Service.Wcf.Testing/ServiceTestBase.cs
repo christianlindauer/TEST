@@ -223,7 +223,7 @@ namespace AutoReservation.Service.Wcf.Testing
         #region Update with optimistic concurrency violation
 
         [TestMethod]
-        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Auto>))]
+        [ExpectedException(typeof(FaultException<LocalOptimisticConcurrencyException<Auto>>))]
         public void UpdateAutoWithOptimisticConcurrencyTest()
         {
             AutoDto testingCar1 = Service.getCarByPrimaryKey(1);
@@ -235,7 +235,7 @@ namespace AutoReservation.Service.Wcf.Testing
         }
 
         [TestMethod]
-        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Kunde>))]
+        [ExpectedException(typeof(FaultException<LocalOptimisticConcurrencyException<Kunde>>))]
         public void UpdateKundeWithOptimisticConcurrencyTest()
         {
             KundeDto testingCustomer1 = Service.getCustomerByPrimaryKey(1);
@@ -247,7 +247,7 @@ namespace AutoReservation.Service.Wcf.Testing
         }
 
         [TestMethod]
-        [ExpectedException(typeof(LocalOptimisticConcurrencyException<Reservation>))]
+        [ExpectedException(typeof(FaultException<LocalOptimisticConcurrencyException<Reservation>>))]
         public void UpdateReservationWithOptimisticConcurrencyTest()
         {
             ReservationDto testingReservation1 = Service.getReservationByPrimaryKey(1);

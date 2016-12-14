@@ -5,6 +5,7 @@ using AutoReservation.Common.DataTransferObjects;
 using AutoReservation.Common.Interfaces;
 using AutoReservation.BusinessLayer;
 using AutoReservation.Dal.Entities;
+using System.ServiceModel;
 
 namespace AutoReservation.Service.Wcf
 {
@@ -98,19 +99,43 @@ namespace AutoReservation.Service.Wcf
         public void updateCar(AutoDto car)
         {
             WriteActualMethod();
-            Component.updateCar(DtoConverter.ConvertToEntity(car));
+            try
+            {
+                Component.updateCar(DtoConverter.ConvertToEntity(car));
+            }
+            catch (LocalOptimisticConcurrencyException<Auto> ex)
+            {
+                throw new FaultException<LocalOptimisticConcurrencyException<Auto>>(ex, ex.Message);
+            }
+           
         }
 
         public void updateCustomer(KundeDto customer)
         {
             WriteActualMethod();
-            Component.updateCustomer(DtoConverter.ConvertToEntity(customer));
+            try
+            {
+                Component.updateCustomer(DtoConverter.ConvertToEntity(customer));
+            }
+            catch(LocalOptimisticConcurrencyException<Kunde> ex)
+            {
+                throw new FaultException<LocalOptimisticConcurrencyException<Kunde>>(ex, ex.Message);
+            }
+            
         }
 
         public void updateReservation(ReservationDto reservation)
         {
             WriteActualMethod();
-            Component.updateReservation(DtoConverter.ConvertToEntity(reservation));
+            try
+            {
+                Component.updateReservation(DtoConverter.ConvertToEntity(reservation));
+            }
+            catch (LocalOptimisticConcurrencyException<Reservation> ex)
+            {
+                throw new FaultException<LocalOptimisticConcurrencyException<Reservation>>(ex,ex.Message);
+            }
+           
         }
     }
 }
